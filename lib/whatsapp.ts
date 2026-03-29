@@ -94,6 +94,7 @@ class WhatsAppAccount {
 
   private async connect(): Promise<void> {
     if (!fs.existsSync(this.authDir)) fs.mkdirSync(this.authDir, { recursive: true });
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { state: authState, saveCreds } = await useMultiFileAuthState(this.authDir);
     const { version } = await fetchLatestBaileysVersion();
     const logger = pino({ level: "silent" });
